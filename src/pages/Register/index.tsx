@@ -6,7 +6,11 @@ const Register = () => {
         justify-center 
         px-6
         h-screen
+        min-h-screen
+        min-w-[300px]
         dark:bg-gray-900
+        md:h-screen
+        lg:py-0
         ">
             <form className="max-w-md mx-auto">
                 <div className="relative z-0 w-full mb-5 group">
