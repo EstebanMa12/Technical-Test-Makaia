@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import LoginWithPhone from "../pages/LoginWithPhone";
+import Home from "../pages/Home";
 
 function AppRouter(){
     return(
