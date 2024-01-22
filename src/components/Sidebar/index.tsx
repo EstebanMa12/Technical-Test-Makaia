@@ -37,10 +37,10 @@ const Sidebar = () => {
 
       <aside
         id="separator-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r  flex-grow"
+        className="relative z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r  flex-grow"
         aria-label="Sidebar"
       >
-         <Profile />
+        <Profile />
         <div className="h-full px-3 py-4 overflow-y-auto bg-white-50">
           <span className="text-gray-500 text-sm font-medium">GENERAL</span>
           <ul className="space-y-2 font-medium text-gray-500">
