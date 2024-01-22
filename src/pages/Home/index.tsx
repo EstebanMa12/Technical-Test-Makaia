@@ -1,11 +1,13 @@
-import Sidebar from "../../components/Sidebar"
+// import Sidebar from "../../components/Sidebar"
 // import Header from "../../components/Header"
-import UsersTable from "../../components/UsersTable"
+// import UsersTable from "../../components/UsersTable"
+import Link from "../../components/Link"
+
+
 const Home = () => {
     return (
-        <div className="flex ">
-            <Sidebar/>
-            <div className="flex-grow"><UsersTable/></div>
+        < div >
+            <Link/>
         </div>
     )
 }
