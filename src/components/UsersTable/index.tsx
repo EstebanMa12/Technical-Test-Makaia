@@ -13,21 +13,21 @@ const UsersTable = () => {
     }
     function getRoleClasses(role: string) {
         switch (role) {
-          case 'admin':
-            return 'text-red-800 bg-red-200   border-red-300 ';
-          case 'editor':
-            return 'text-cyan-800 bg-cyan-200 border-green-600';
-          case 'guest':
-            return 'text-yellow-800 bg-yellow-200 border-yellow-600';
-          default:
-            return '';
+            case 'admin':
+                return 'text-red-800 bg-red-200   border-red-300 ';
+            case 'editor':
+                return 'text-cyan-800 bg-cyan-200 border-green-600';
+            case 'guest':
+                return 'text-yellow-800 bg-yellow-200 border-yellow-600';
+            default:
+                return '';
         }
       }
 
 
     return (
         <div className=" overflow-x-auto shadow-md sm:rounded-lg
-        w-[1064px]
+        w-full
         ">
             <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white ">
 
