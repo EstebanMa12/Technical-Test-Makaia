@@ -12,7 +12,6 @@ const Sidebar = () => {
   return (
     <>
       
-
       <button
         data-drawer-target="separator-sidebar"
         data-drawer-toggle="separator-sidebar"
@@ -38,7 +37,7 @@ const Sidebar = () => {
 
       <aside
         id="separator-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r"
         aria-label="Sidebar"
       >
          <Profile />
