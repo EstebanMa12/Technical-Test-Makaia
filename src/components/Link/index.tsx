@@ -18,7 +18,7 @@ const Link = () => {
         })
     };
     return (
-        <div className="border-b pb-8">
+        <div className="border-b pb-8 ">
             <h3 className="font-bold ">Invite link</h3>
             <p className="text-sm text-gray-400 mb-4">Use private link to invite people. Only users who can invite member can see this.<br/>
                 You can <a href="#" 
@@ -26,7 +26,7 @@ const Link = () => {
                 onClick={()=>setRandomLink(generateRandomLink())}>reset the link </a> to create new private link
             </p>
             <div className="flex">
-                <div className="bg-gray-300 w-96 flex items-center rounded">
+                <div className="bg-gray-300 w-96 flex items-center rounded p-2">
                     <span>{randomLink}</span>
                 </div>
                 <button 
