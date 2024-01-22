@@ -6,10 +6,13 @@ import { VscFileSubmodule } from "react-icons/vsc";
 import { IoIosPeople } from "react-icons/io";
 import { MdOutlineRocketLaunch } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
+import Profile from "../Profile";
 
 const Sidebar = () => {
   return (
     <>
+      
+
       <button
         data-drawer-target="separator-sidebar"
         data-drawer-toggle="separator-sidebar"
@@ -38,6 +41,7 @@ const Sidebar = () => {
         className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
+         <Profile />
         <div className="h-full px-3 py-4 overflow-y-auto bg-white-50">
           <span className="text-gray-500 text-sm font-medium">GENERAL</span>
           <ul className="space-y-2 font-medium text-gray-500">
