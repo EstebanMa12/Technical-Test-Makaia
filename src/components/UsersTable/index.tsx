@@ -2,14 +2,23 @@ import DropdownList from "../DropdownList";
 import Profile from "../Profile";
 
 const UsersTable = () => {
+    function RoleBadge({ role }: { role: string }) {
+        const roleClasses = getRoleClasses(role);
+    
+        return (
+            <div className={`px-3 py-1 flex items-center justify-center w-20 rounded-md ${roleClasses}`}>
+                {role}
+            </div>
+        );
+    }
     function getRoleClasses(role: string) {
         switch (role) {
           case 'admin':
-            return 'text-white bg-red-500 border-red-600';
+            return 'text-red-800 bg-red-200   border-red-300 ';
           case 'editor':
-            return 'text-white bg-green-500 border-green-600';
+            return 'text-cyan-800 bg-cyan-200 border-green-600';
           case 'guest':
-            return 'text-white bg-blue-500 border-blue-600';
+            return 'text-yellow-800 bg-yellow-200 border-yellow-600';
           default:
             return '';
         }
@@ -55,7 +64,7 @@ const UsersTable = () => {
                             <Profile/>
                         </th>
                         <td className="px-6 py-4">
-                            React Developer
+                            <RoleBadge role="guest"/>
                         </td>
                         <td className="px-6 py-4">
                             <DropdownList/> 
@@ -68,8 +77,8 @@ const UsersTable = () => {
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             <Profile/>
                         </th>
-                        <td className={`px-6 py-4 ${getRoleClasses(role)}`}>
-                            {}
+                        <td >
+                            <RoleBadge role="admin"/>
                         </td>
                         <td className="px-6 py-4">
                             <DropdownList/>                      
