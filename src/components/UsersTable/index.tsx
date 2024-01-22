@@ -2,6 +2,18 @@ import DropdownList from "../DropdownList";
 import Profile from "../Profile";
 
 const UsersTable = () => {
+    function getRoleClasses(role: string) {
+        switch (role) {
+          case 'admin':
+            return 'text-white bg-red-500 border-red-600';
+          case 'editor':
+            return 'text-white bg-green-500 border-green-600';
+          case 'guest':
+            return 'text-white bg-blue-500 border-blue-600';
+          default:
+            return '';
+        }
+      }
 
 
     return (
@@ -56,8 +68,8 @@ const UsersTable = () => {
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             <Profile/>
                         </th>
-                        <td className="px-6 py-4">
-                            Designer
+                        <td className={`px-6 py-4 ${getRoleClasses(role)}`}>
+                            {}
                         </td>
                         <td className="px-6 py-4">
                             <DropdownList/>                      
