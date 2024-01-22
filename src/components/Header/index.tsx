@@ -4,7 +4,7 @@ const Header = () => {
         <header className="flex
         justify-end
         items-center
-        p-5
+        pb-5
         gap-5
         border-b
         ">

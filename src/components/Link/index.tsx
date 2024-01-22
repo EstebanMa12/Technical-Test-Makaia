@@ -18,7 +18,7 @@ const Link = () => {
         })
     };
     return (
-        <div>
+        <div className="border-b pb-8">
             <h3 className="font-bold ">Invite link</h3>
             <p className="text-sm text-gray-400 mb-4">Use private link to invite people. Only users who can invite member can see this.<br/>
                 You can <a href="#" 
