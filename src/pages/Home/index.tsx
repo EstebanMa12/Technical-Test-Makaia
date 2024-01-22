@@ -13,8 +13,9 @@ const Home = () => {
             gap-10
             ml-64
             overflow-y-auto
-            md:ml-72
-            min-w-64
+            md:ml-60
+            sm:ml-48
+            scrollbar-hide
             ">
                 <Header/>
                 <Link/>

@@ -44,7 +44,8 @@ const UsersTable = () => {
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className="px-8 py-3
+                        w-1/4">
                             User
                         </th>
                         <th scope="col" className="px-6 py-3">
@@ -60,7 +61,7 @@ const UsersTable = () => {
                 </thead>
                 <tbody>
                     <tr className="bg-white border-b  hover:bg-gray-50 ">
-                        <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
+                        <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap w-1/4 ">
                             <Profile/>
                         </th>
                         <td className="px-6 py-4">

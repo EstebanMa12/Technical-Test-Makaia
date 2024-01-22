@@ -37,7 +37,7 @@ const Sidebar = () => {
 
       <aside
         id="separator-sidebar"
-        className="relative z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r  flex-grow"
+        className="relative z-40 min-w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r  flex-grow"
         aria-label="Sidebar"
       >
         <Profile />
