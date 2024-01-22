@@ -1,7 +1,12 @@
+import DropdownList from "../DropdownList";
+import Profile from "../Profile";
+
 const UsersTable = () => {
+
+
     return (
         <div className=" overflow-x-auto shadow-md sm:rounded-lg
-        w-1064
+        w-[1064px]
         ">
             <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white ">
 
@@ -35,42 +40,30 @@ const UsersTable = () => {
                 <tbody>
                     <tr className="bg-white border-b  hover:bg-gray-50 ">
                         <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
-                            <img className="w-10 h-10 rounded-full" src="" alt="Jese image"/>
-                            <div className="ps-3">
-                                <div className="text-base font-semibold">Neil Sims</div>
-                                <div className="font-normal text-gray-500">neil.sims@flowbite.com</div>
-                            </div>  
+                            <Profile/>
                         </th>
                         <td className="px-6 py-4">
                             React Developer
                         </td>
                         <td className="px-6 py-4">
-                            <div className="flex items-center">
-                                <div className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                            </div>
+                            <DropdownList/> 
                         </td>
                         <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 hover:underline">Edit user</a>
+                            <DropdownList/>                      
                         </td>
                     </tr>
                     <tr className="bg-white border-b  hover:bg-gray-50 ">
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                            <img className="w-10 h-10 rounded-full" src="" alt="Jese image"/>
-                            <div className="ps-3">
-                                <div className="text-base font-semibold">Bonnie Green</div>
-                                <div className="font-normal text-gray-500">bonnie@flowbite.com</div>
-                            </div>
+                            <Profile/>
                         </th>
                         <td className="px-6 py-4">
                             Designer
                         </td>
                         <td className="px-6 py-4">
-                            <div className="flex items-center">
-                                <div className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                            </div>
+                            <DropdownList/>                      
                         </td>
                         <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600  hover:underline">Edit user</a>
+                            <DropdownList/>                      
                         </td>
                     </tr>                    
                 </tbody>
