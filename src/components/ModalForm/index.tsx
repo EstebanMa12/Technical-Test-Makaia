@@ -83,15 +83,15 @@ const ModalForm = () => {
   };
 
   return (
-    <div className="w-full h-full border border-black flex justify-center items-center">
-      <div className="w-[1157px] h-[466px] border-2 border-black my-32 rounded-lg bg-white shadow-xl z-50 overflow-hidden flex">
+    <div className="w-full h-full flex justify-center items-center ">
+      <div className="w-[1157px] h-[466px] my-32 rounded-lg bg-white shadow-xl z-50 overflow-hidden flex">
         <div className="flex justify-center items-center w-72 h-full  bg-pink-50 ">
 
         </div>
         <div className='p-4 '>
           <h1 className="text-pink-500 font-bold text-2xl pb-4 mb-6">
             Invite people to My workspace
-          </h1>
+          </h1>          
           <div>
           <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto">
             <table className="w-full">
