@@ -28,6 +28,7 @@ const UsersTable = () => {
     return (
         <div className=" overflow-x-auto shadow-md sm:rounded-lg
         w-full
+        overflow-y-hidden
         ">
             <div className="  items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white ">
                 {/* <label htmlFor="table-search" className="sr-only">Search</label> */}
