@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import DropdownCheckbox from '../DropdownCheckbox';
+import { Row } from '../../models/modalForm.models';
 
 const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => {
   return (
@@ -48,12 +49,36 @@ const ModalForm = () => {
   const [email, setEmail] = useState('');
   const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
   const [permission, setPermission] = useState('admin');
+  const [rows, setRows] = useState<Row[]>([{email:'',projects:[],permission:''}]);
 
   const projects = ['Project 1', 'Project 2', 'Project 3'];
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // send invite here
+  };
+
+  const addRow = () => {
+    const newRow = { email: '', projects: [], permission: '' };
+    setRows([...rows, newRow]);
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const updatedRows = [...rows];
+    updatedRows[index].email = e.target.value;
+    setRows(updatedRows);
+  };
+
+  const handleProjectsChange = (selectedProjects: string[], index: number) => {
+    const updatedRows = [...rows];
+    updatedRows[index].projects = selectedProjects;
+    setRows(updatedRows);
+  };
+
+  const handlePermissionChange = (e: React.ChangeEvent<HTMLSelectElement>, index: number) => {
+    const updatedRows = [...rows];
+    updatedRows[index].permission = e.target.value;
+    setRows(updatedRows);
   };
 
   return (
@@ -77,51 +102,23 @@ const ModalForm = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+              {rows.map((row, index) => (
+                <tr key={index}>
                   <td className='px-6 py-2'>
-                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
+                    <EmailInput email={row.email} onChange={(e) => handleEmailChange(e, index)} />
                   </td>
                   <td className='px-6 py-2'>
                     <DropdownCheckbox
                       options={projects}
-                      selectedOptions={selectedProjects}
-                      onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
+                      selectedOptions={row.projects}
+                      onChange={(selectedProjects) => handleProjectsChange(selectedProjects, index)}
                     />
                   </td>
                   <td className='px-6 py-2'>
-                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
-                  </td>
-                </tr> 
-                <tr>
-                  <td className='px-6 py-2'>
-                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
-                  </td>
-                  <td className='px-6 py-2'>
-                    <DropdownCheckbox
-                      options={projects}
-                      selectedOptions={selectedProjects}
-                      onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
-                    />
-                  </td>
-                  <td className='px-6 py-2'>
-                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
+                    <PermissionSelection permission={row.permission} onChange={(e) => handlePermissionChange(e, index)} />
                   </td>
                 </tr>
-                <tr>
-                  <td className='px-6 py-2'>
-                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
-                  </td>
-                  <td className='px-6 py-2'>
-                    <DropdownCheckbox
-                      options={projects}
-                      selectedOptions={selectedProjects}
-                      onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
-                    />
-                  </td>
-                  <td className='px-6 py-2'>
-                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
-                  </td>
-                </tr>
+              ))}
 
               </tbody>
             </table>
@@ -129,6 +126,7 @@ const ModalForm = () => {
               <button
                 type="button"
                 className="block p-2 text-sm  rounded-lg w-80 bg-white text-pink-500 mt-6 mb-8"
+                onClick={addRow}
               >
                 + Add more members
               </button>
