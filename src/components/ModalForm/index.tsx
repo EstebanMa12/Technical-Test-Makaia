@@ -46,10 +46,11 @@ const PermissionSelection = ({ initialPermission, onChange }: { initialPermissio
 };
 
 const ModalForm = () => {
-  const [email, setEmail] = useState('');
-  const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
-  const [permission, setPermission] = useState('admin');
-  const [rows, setRows] = useState<Row[]>([{email:'',projects:[],permission:''}]);
+  const [rows, setRows] = useState<Row[]>([
+    {email:'',projects:[],permission:''},
+    {email:'',projects:[],permission:''},
+    {email:'',projects:[],permission:''}
+  ]);
 
   const projects = ['Project 1', 'Project 2', 'Project 3'];
 
