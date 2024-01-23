@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const DropdownCheckbox = ({ options, selectedOptions, onChange }: { options: string[], selectedOptions: string[], onChange: (options: string[]) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +17,26 @@ const handleOptionChange = (option: string) => {
 
   return (
     <div className="dropdown-checkbox">
-      <div className="dropdown-header" onClick={toggleDropdown}>
+      <div className="dropdown-header 
+      block p-2 
+      bg-gray-50 
+      rounded-lg w-60
+      text-sm text-gray-400
+      border border-gray-300
+      focus:ring-pink-500 focus:border-pink-500
+      focus:text-pink-700 focus:font-bold
+      active:border-pink-500 active:ring-pink-500 active:ring-2
+      " 
+      onClick={toggleDropdown}>
         Select Projects
       </div>
       {isOpen && (
-        <div className="dropdown-content">
+        <div className="block p-2 ">
           {options.map((option) => (
-            <div key={option} className="checkbox-option">
+            <div key={option} className="checkbox-option 
+            gap-4
+            flex flex-row
+            ">
               <input
                 type="checkbox"
                 id={option}
