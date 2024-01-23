@@ -4,6 +4,7 @@ import UsersTable from "../../components/UsersTable"
 import Link from "../../components/Link"
 import ModalForm from "../../components/ModalForm"
 import { useState } from "react"
+import SuccessMessage from "../../components/SuccessMessage"
 
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
             scrollbar-hide
             ">
                 <Header/>
+                <SuccessMessage/>
                 <Link/>
                 <UsersTable onOpenModal={openModal}/>
             </div>
