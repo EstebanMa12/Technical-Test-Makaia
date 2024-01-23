@@ -5,10 +5,10 @@ const Profile = () => {
     const handleToggle = () => setIsOpen(!isOpen);
 
     return (
-        <div className="flex items-center gap-4 border-b m-4 pb-4 cursor-pointer"
+        <div className="flex items-center gap-4 border-b m-4 pb-4 cursor-pointer relative"
         onClick={handleToggle}>
             <img 
-            className="w-10 h-10 rounded-full "
+            className="w-10 h-10 rounded-full"
             />
             <div className="font-medium">
                 <div>Ryan Anscher</div>
