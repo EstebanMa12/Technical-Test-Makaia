@@ -7,8 +7,12 @@ import { IoIosPeople } from "react-icons/io";
 import { MdOutlineRocketLaunch } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import Profile from "../Profile";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const handleToggle = () => setSidebarOpen(!sidebarOpen);
+  
   return (
     <>
       
@@ -18,6 +22,7 @@ const Sidebar = () => {
         aria-controls="separator-sidebar"
         type="button"
         className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400  dark:focus:ring-gray-600"
+        onClick={handleToggle}
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -37,7 +42,7 @@ const Sidebar = () => {
 
       <aside
         id="separator-sidebar"
-        className="relative z-40 min-w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r  flex-grow"
+        className="relative z-40 min-w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r flex-grow"
         aria-label="Sidebar"
       >
         <Profile />
