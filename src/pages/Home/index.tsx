@@ -3,12 +3,21 @@ import Header from "../../components/Header"
 import UsersTable from "../../components/UsersTable"
 import Link from "../../components/Link"
 import ModalForm from "../../components/ModalForm"
+import { useState } from "react"
 
 
 const Home = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    }
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
     return (
         <>
-        <div className="container flex flex-row">
+        <div className="container flex flex-row overflow-y-hidden">
             <Sidebar/>
             < div className="flex flex-col w-full h-screen
             p-14
@@ -21,10 +30,10 @@ const Home = () => {
             ">
                 <Header/>
                 <Link/>
-                <UsersTable/>
+                <UsersTable onOpenModal={openModal}/>
             </div>
         </div>
-        <ModalForm/>
+        {isModalOpen && <ModalForm closeModal={closeModal}/> }
         </>
     )
 }

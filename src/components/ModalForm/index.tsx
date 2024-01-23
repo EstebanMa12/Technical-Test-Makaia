@@ -45,7 +45,8 @@ const PermissionSelection = ({ initialPermission, onChange }: { initialPermissio
   );
 };
 
-const ModalForm = () => {
+const ModalForm = ({closeModal}: {closeModal: () => void}) => {
+
   const [rows, setRows] = useState<Row[]>([
     {email:'',projects:[],permission:''},
     {email:'',projects:[],permission:''},
@@ -57,6 +58,8 @@ const ModalForm = () => {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // send invite here
+    console.log(rows);
+    closeModal();
   };
 
   const addRow = () => {
@@ -83,7 +86,7 @@ const ModalForm = () => {
   };
 
   return (
-    <div className="w-full h-full flex justify-center items-center ">
+    <div className="w-full h-full fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
       <div className="w-[1157px] h-[466px] my-32 rounded-lg bg-white shadow-xl z-50 overflow-hidden flex">
         <div className="flex justify-center items-center w-72 h-full  bg-pink-50 ">
 
@@ -137,6 +140,7 @@ const ModalForm = () => {
               <button
                 type="button"
                 className="block p-2 text-sm border border-gray-300 rounded-lg bg-white text-gray-500 w-20 "
+                onClick={closeModal}
               >
                 Cancel
               </button>
