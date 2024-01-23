@@ -9,6 +9,7 @@ import SuccessMessage from "../../components/SuccessMessage"
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -21,12 +22,13 @@ const Home = () => {
         <div className="container flex flex-row overflow-y-hidden">
             <Sidebar/>
             < div className="flex flex-col w-full h-screen
-            p-14
+            pb-14
+            p-4
             gap-10
             ml-64
             overflow-y-auto
-            md:ml-60
-            sm:ml-48
+            md:ml-48
+            sm:ml-20
             scrollbar-hide
             ">
                 <Header/>

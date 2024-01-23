@@ -41,7 +41,7 @@ const Sidebar = () => {
 
       <aside
         id="separator-sidebar"
-        className="relative z-40 min-w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r flex-grow"
+        className="relative z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r flex-grow"
         aria-label="Sidebar"
       >
         <Profile />
@@ -118,8 +118,8 @@ const Sidebar = () => {
               </a>
             </li>
           </ul>
-          <div className="flex flex-col absolute bottom-5">
-            <div className="flex flex-col bg-gray-200 rounded-sm w-56 h-24 mb-4 justify-between p-3">
+          <div className="flex flex-col absolute bottom-5 ">
+            <div className="hidden md:flex flex-col bg-gray-200 rounded-sm w-52 h-24 mb-4 justify-between p-3">
               <h3 className="flex items-center text-sm ">
                 <MdOutlineRocketLaunch className="mr-2"/> Upgrade to Pro
               </h3>
