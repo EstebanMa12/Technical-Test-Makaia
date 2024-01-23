@@ -10,7 +10,10 @@ const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.Ch
       <input
         type="text"
         id="first-name"
-        className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+        className="block p-2 text-sm 
+        text-gray-900 border 
+        border-gray-300 
+        rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
         placeholder="Enter email address"
         value={email}
         onChange={onChange}
@@ -50,12 +53,16 @@ const PermissionSelection = ({ permission, onChange }: { permission: string, onC
       <select
         name="role"
         id="role"
-        className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+        className="block p-2 text-sm text-gray-900 border 
+        border-gray-300 
+        rounded-lg w-60 
+        bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
         value={permission}
         onChange={onChange}
       >
         <option value="admin">Admin</option>
-        <option value="guest">Guest</option>
+        <option value="can-edit">Can edit</option>
+        <option value="can-view">Can view</option>
       </select>
     </div>
   );
@@ -77,8 +84,8 @@ const ModalForm = () => {
     <div className="w-full h-full border border-black flex justify-center items-center">
       <div className="w-[1157px] h-[466px] border-2 border-black my-32 rounded-lg bg-white shadow-xl z-50 overflow-hidden flex">
         <div className="flex justify-center items-center w-72 h-full border border-black "></div>
-        <div>
-          <h1 className="text-pink-500 font-bold text-2xl p-4">
+        <div className='p-4'>
+          <h1 className="text-pink-500 font-bold text-2xl pb-4">
             Invite people to My workspace
           </h1>
           <div>
