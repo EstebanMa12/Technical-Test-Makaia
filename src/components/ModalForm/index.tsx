@@ -62,7 +62,7 @@ const ModalForm = () => {
         <div className="flex justify-center items-center w-72 h-full  bg-pink-50 ">
 
         </div>
-        <div className='p-4'>
+        <div className='p-4 '>
           <h1 className="text-pink-500 font-bold text-2xl pb-4 mb-6">
             Invite people to My workspace
           </h1>
@@ -134,17 +134,16 @@ const ModalForm = () => {
               </button>
             </div>
 
-            <div className="flex justify-center items-center gap-3">
-              {/* Button for Cancel */}
+            <div className="flex justify-end items-center gap-3 w-full">
               <button
                 type="button"
-                className="block p-2 text-sm border border-gray-300 rounded-lg w-80 bg-white text-gray-500 mt-4 mx-auto"
+                className="block p-2 text-sm border border-gray-300 rounded-lg bg-white text-gray-500 w-20 "
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="block p-2 text-sm border border-gray-300 rounded-lg w-80 bg-pink-500 text-white mt-4 mx-auto"
+                className="block p-2 text-sm border border-gray-300 rounded-lg w-32 bg-pink-500 text-white"
               >
                 Send invites
               </button>
