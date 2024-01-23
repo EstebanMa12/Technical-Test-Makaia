@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import DropdownCheckbox from '../DropdownCheckbox';
 
 const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => {
   return (
@@ -13,7 +14,7 @@ const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.Ch
         className="block p-2 text-sm 
         text-gray-900 border 
         border-gray-300 
-        rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+        rounded-lg w-72 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
         placeholder="Enter email address"
         value={email}
         onChange={onChange}
@@ -22,27 +23,27 @@ const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.Ch
   );
 };
 
-const ProjectSelection = ({ projects, selectedProjects, onChange }: { projects: string[], selectedProjects: string[], onChange: (project: string) => void }) => {
-  return (
-    <div className="flex flex-col justify-center items-center">
-      <label htmlFor="" className="font-semibold mt-2">
-        Projects
-      </label>
-      {projects.map((project) => (
-        <div key={project} className="flex flex-row justify-center items-center">
-          <input
-            type="checkbox"
-            id={`project-${project}`}
-            className="mr-2"
-            checked={selectedProjects.includes(project)}
-            onChange={() => onChange(project)}
-          />
-          <label htmlFor={`project-${project}`}>{project}</label>
-        </div>
-      ))}
-    </div>
-  );
-};
+// const ProjectSelection = ({ projects, selectedProjects, onChange }: { projects: string[], selectedProjects: string[], onChange: (project: string) => void }) => {
+//   return (
+//     <div className="flex flex-col justify-center items-center">
+//       <label htmlFor="" className="font-semibold mt-2">
+//         Projects
+//       </label>
+//       {projects.map((project) => (
+//         <div key={project} className="flex flex-row justify-center items-center">
+//           <input
+//             type="checkbox"
+//             id={`project-${project}`}
+//             className="mr-2"
+//             checked={selectedProjects.includes(project)}
+//             onChange={() => onChange(project)}
+//           />
+//           <label htmlFor={`project-${project}`}>{project}</label>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
 const PermissionSelection = ({ permission, onChange }: { permission: string, onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }) => {
   return (
@@ -56,7 +57,10 @@ const PermissionSelection = ({ permission, onChange }: { permission: string, onC
         className="block p-2 text-sm text-gray-900 border 
         border-gray-300 
         rounded-lg w-60 
-        bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+        bg-gray-50 focus:ring-pink-500 focus:border-pink-500 
+        focus:text-pink-700 focus:font-bold
+
+        "
         value={permission}
         onChange={onChange}
       >
@@ -70,7 +74,7 @@ const PermissionSelection = ({ permission, onChange }: { permission: string, onC
 
 const ModalForm = () => {
   const [email, setEmail] = useState('');
-  const [selectedProjects, setSelectedProjects] = useState([]);
+  const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
   const [permission, setPermission] = useState('admin');
 
   const projects = ['Project 1', 'Project 2', 'Project 3'];
@@ -92,7 +96,7 @@ const ModalForm = () => {
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-3">
                 <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
-                <ProjectSelection
+                {/* <ProjectSelection
                   projects={projects}
                   selectedProjects={selectedProjects}
                   onChange={(project) => {
@@ -102,12 +106,18 @@ const ModalForm = () => {
                       setSelectedProjects([...selectedProjects, project]);
                     }
                   }}
+                /> */}
+                <DropdownCheckbox
+                    options={projects}
+                    selectedOptions={selectedProjects}
+                    onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
                 />
+
                 <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
               </div>
               <button
                 type="submit"
-                className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-pink-500 focus:ring-blue-500 focus:border-blue-500 text-white mt-4"
+                className="block p-2 text-sm  border border-gray-300 rounded-lg w-80 bg-pink-500 focus:ring-blue-500 focus:border-blue-500 text-white mt-4"
               >
                 Send invite
               </button>
