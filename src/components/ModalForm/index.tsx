@@ -23,28 +23,6 @@ const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.Ch
   );
 };
 
-// const ProjectSelection = ({ projects, selectedProjects, onChange }: { projects: string[], selectedProjects: string[], onChange: (project: string) => void }) => {
-//   return (
-//     <div className="flex flex-col justify-center items-center">
-//       <label htmlFor="" className="font-semibold mt-2">
-//         Projects
-//       </label>
-//       {projects.map((project) => (
-//         <div key={project} className="flex flex-row justify-center items-center">
-//           <input
-//             type="checkbox"
-//             id={`project-${project}`}
-//             className="mr-2"
-//             checked={selectedProjects.includes(project)}
-//             onChange={() => onChange(project)}
-//           />
-//           <label htmlFor={`project-${project}`}>{project}</label>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
 const PermissionSelection = ({ permission, onChange }: { permission: string, onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }) => {
   return (
     <div className="flex flex-col justify-center items-center">
@@ -96,23 +74,12 @@ const ModalForm = () => {
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-3">
                 <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
-                {/* <ProjectSelection
-                  projects={projects}
-                  selectedProjects={selectedProjects}
-                  onChange={(project) => {
-                    if (selectedProjects.includes(project)) {
-                      setSelectedProjects(selectedProjects.filter((p) => p !== project));
-                    } else {
-                      setSelectedProjects([...selectedProjects, project]);
-                    }
-                  }}
-                /> */}
+                <label htmlFor="" className='font-semibold mt-2'></label>
                 <DropdownCheckbox
                     options={projects}
                     selectedOptions={selectedProjects}
                     onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
                 />
-
                 <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
               </div>
               <button
