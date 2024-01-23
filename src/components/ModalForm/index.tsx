@@ -19,22 +19,22 @@ const EmailInput = ({ email, onChange }: { email: string, onChange: (e: React.Ch
   );
 };
 
-const PermissionSelection = ({ permission, onChange }: { permission: string, onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }) => {
+const PermissionSelection = ({ initialPermission, onChange }: { initialPermission: string, onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }) => {
+  const [permission, setPermission] = useState<string>(initialPermission);
+
+  const handlePermissionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPermission(e.target.value);
+    onChange(e);
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
-      
       <select
         name="role"
         id="role"
-        className="block p-2 text-sm text-gray-900 border 
-        border-gray-300 
-        rounded-lg w-28 
-        bg-gray-50 focus:ring-pink-500 focus:border-pink-500 
-        focus:text-pink-700 focus:font-bold
-
-        "
+        className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-28 bg-gray-50 focus:ring-pink-500 focus:border-pink-500 focus:text-pink-700 focus:font-bold"
         value={permission}
-        onChange={onChange}
+        onChange={handlePermissionChange}
       >
         <option value="admin">Admin</option>
         <option value="can-edit">Can edit</option>
