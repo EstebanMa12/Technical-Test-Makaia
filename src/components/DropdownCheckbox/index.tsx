@@ -1,37 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const DropdownCheckbox = ({ options, onChange }: { options: string[], onChange: (options: string[]) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [toggleName, setToggleName] = useState<string>('Select Projects');
 
+  useEffect(() => {
+    updateToggleName();
+  }, [selectedOptions]);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+
   const handleOptionChange = (option: string) => {
     let updatedOptions: string[] = [];
+
     if (option === 'All Projects') {
       updatedOptions = options;
-      setToggleName('All Projects');
-      onChange(['All Projects']);
-      return;
+      setSelectedOptions(['All Projects']);
     }else{
       updatedOptions = selectedOptions.includes(option)
       ? selectedOptions.filter((selectedOption: string) => selectedOption !== option)
       : [...selectedOptions, option];
-      if(updatedOptions.length === 0){
-        setToggleName('Select Projects');
-      }
-      else{
-        setToggleName(updatedOptions.join(', '));
-      }
     }
 
 
     setSelectedOptions(updatedOptions);
-    onChange(updatedOptions);
   };
+
+  const updateToggleName = () => {
+    if (selectedOptions.length === 0) {
+      setToggleName('Select Projects');
+    } else if (selectedOptions.length === options.length) {
+      setToggleName('All Projects');
+    } else {
+      setToggleName(`${selectedOptions.length} Projects`);
+    }
+  }
 
   return (
     <div className="relative">
