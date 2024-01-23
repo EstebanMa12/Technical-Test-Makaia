@@ -63,40 +63,93 @@ const ModalForm = () => {
 
         </div>
         <div className='p-4'>
-          <h1 className="text-pink-500 font-bold text-2xl pb-4">
+          <h1 className="text-pink-500 font-bold text-2xl pb-4 mb-6">
             Invite people to My workspace
           </h1>
           <div>
-            <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-3">
-                <div>
-                  <label htmlFor="email" className="text-black font-bold text-sm text-left">
-                    Email
-                  </label>
-                  <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div>
-                  <label htmlFor="" className='font-semibold mt-2'>Projects</label>
-                  <DropdownCheckbox
+          <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto">
+            <table className="w-full">
+              <thead>
+                <tr>
+                  <th scope='col' className="text-left px-6 py">Email</th>
+                  <th scope='col' className="text-left px-6 py">Projects</th>
+                  <th scope='col' className="text-left px-6 py">Permission</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className='px-6 py-2'>
+                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <DropdownCheckbox
                       options={projects}
                       selectedOptions={selectedProjects}
                       onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
-                  />
-                  <div>
-                </div>
-                  <label htmlFor="role" className="text-black font-bold text-sm ">
-                    Permission
-                  </label>
-                  <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
-                </div>
-              </div>
+                    />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
+                  </td>
+                </tr> 
+                <tr>
+                  <td className='px-6 py-2'>
+                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <DropdownCheckbox
+                      options={projects}
+                      selectedOptions={selectedProjects}
+                      onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
+                    />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
+                  </td>
+                </tr>
+                <tr>
+                  <td className='px-6 py-2'>
+                    <EmailInput email={email} onChange={(e) => setEmail(e.target.value)} />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <DropdownCheckbox
+                      options={projects}
+                      selectedOptions={selectedProjects}
+                      onChange={(selectedProjects) => setSelectedProjects(selectedProjects)}
+                    />
+                  </td>
+                  <td className='px-6 py-2'>
+                    <PermissionSelection permission={permission} onChange={(e) => setPermission(e.target.value)} />
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            <div className="w-full">
+              <button
+                type="button"
+                className="block p-2 text-sm  rounded-lg w-80 bg-white text-pink-500 mt-6 mb-8"
+              >
+                + Add more members
+              </button>
+            </div>
+
+            <div className="flex justify-center items-center gap-3">
+              {/* Button for Cancel */}
+              <button
+                type="button"
+                className="block p-2 text-sm border border-gray-300 rounded-lg w-80 bg-white text-gray-500 mt-4 mx-auto"
+              >
+                Cancel
+              </button>
               <button
                 type="submit"
-                className="block p-2 text-sm  border border-gray-300 rounded-lg w-80 bg-pink-500 text-white mt-4"
+                className="block p-2 text-sm border border-gray-300 rounded-lg w-80 bg-pink-500 text-white mt-4 mx-auto"
               >
-                Send invite
+                Send invites
               </button>
-            </form>
+            </div>
+          </form>
           </div>
         </div>
       </div>
