@@ -1,10 +1,8 @@
 import {doc, getDoc, setDoc} from "firebase/firestore"
 import { db } from "../firebase/firebaseConfig"
-import { Data, UserData } from "../models/user.models";
-
 const collectionName = 'users'
 
-export const createUserInCollection = async (uid: string, data:Data) => {
+export const createUserInCollection = async (uid, data) => {
     try {
         const docRef = doc(db, collectionName, uid);
         await setDoc(docRef, data);
@@ -18,7 +16,7 @@ export const createUserInCollection = async (uid: string, data:Data) => {
     }
 }
 
-export const getUserById = async (uid: string) => {
+export const getUserById = async (uid) => {
     try {
         const docRef = doc(db, collectionName, uid);
         const docSnap = await getDoc(docRef);
@@ -36,7 +34,7 @@ export const getUserById = async (uid: string) => {
     }
 }
 
-export const loginFromFirestore = async ( userData: UserData ) =>{
+export const loginFromFirestore = async ( userData ) =>{
     try {
         const user = await getUserById(userData.uid);
         if (user) {
@@ -51,6 +49,51 @@ export const loginFromFirestore = async ( userData: UserData ) =>{
         }
     }
     catch (error) {
+        console.warn(error);
+        return false
+    }
+}
+
+export const logoutFromFirestore = async (uid) => {
+    try {
+        const docRef = doc(db, collectionName, uid);
+        await setDoc(docRef, {
+            displayName: '',
+            photoURL: '',
+            accessToken: '',
+            email: '',
+        });
+        return true
+    } catch (error) {
+        console.warn(error);
+        return false
+    }
+}
+
+export const updateUserFromFirestore = async (uid, data) => {
+    try {
+        const docRef = doc(db, collectionName, uid);
+        await setDoc(docRef, data);
+        return true
+    } catch (error) {
+        console.warn(error);
+        return false
+    }
+}
+
+export const getUserFromCollection = async (uid) =>{
+    try {
+        const docRef = doc(db, collectionName, uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return {
+                uid,
+                ...docSnap.data()
+            }
+        } else {
+            return false
+        }
+    } catch (error) {
         console.warn(error);
         return false
     }
