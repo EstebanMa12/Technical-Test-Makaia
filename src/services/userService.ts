@@ -43,7 +43,7 @@ export const loginFromFirestore = async ( userData: UserData ) =>{
             return user
         } else {
             return await createUserInCollection(userData.uid, {
-                name: userData.displayName,
+                displayName: userData.displayName,
                 photoURL: userData.photoURL,
                 accessToken: userData.accessToken,
                 email: userData.email,
