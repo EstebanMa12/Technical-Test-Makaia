@@ -9,7 +9,6 @@ import SuccessMessage from "../../components/SuccessMessage"
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const openModal = () => {
         setIsModalOpen(true);
